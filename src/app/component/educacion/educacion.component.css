@@ -1,5 +1,6 @@
-row{
+.row{
     padding: 20px;
+    margin: 0;
 }
 div{
     background-color: #a1b1cb;

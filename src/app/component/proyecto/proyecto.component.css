@@ -1,6 +1,7 @@
 .row{
     background-color:#a1b5cb ;
     padding: 20px;
+    margin: 0;
 }
 .contenedor{
     width: auto;

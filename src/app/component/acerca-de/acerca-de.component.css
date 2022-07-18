@@ -1,10 +1,15 @@
 .row{
     padding: 20px;
+    margin: 0;
 }
 
 div{
     background-color: #a1b5cb;
     text-align: center;
+}
+.row div #foto-perfil{
+    position: absolute;
+    top: 830px;
 }
 
 @media(min-width:576px){
