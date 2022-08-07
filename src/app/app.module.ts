@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,9 +18,12 @@ import { FooterComponent } from './component/footer/footer.component';
 import { HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
-import { IniciarSesionComponent } from './component/iniciar-sesion/iniciar-sesion.component';
 import { PortfolioComponent } from './component/portfolio/portfolio.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { interceptorProvider } from './service/interceptor-service';
+import { FormsModule } from '@angular/forms';
+import { NewExperienciaComponent } from './component/experiencia/new-experiencia/new-experiencia.component';
+import { EditExperienciaComponent } from './component/experiencia/edit-experiencia.component';
 
 @NgModule({
   declarations: [
@@ -36,17 +40,21 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    IniciarSesionComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    NewExperienciaComponent,
+    EditExperienciaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    interceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

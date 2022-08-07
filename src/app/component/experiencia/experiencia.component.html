@@ -1,26 +1,54 @@
 <div class="row">
     <h1>Experiencia Laboral</h1>
-    <div class="col-lg-1"></div>
+    <div class="col-lg-2 col-md-2 col-sm-2">
+      <button type="button" class="btn btn-dark" routerLink="/nuevaexp" *ngIf="isLogged">
+          Nueva Experiencia
+      </button>
+    </div>
+
+<div class="col-lg-1 col-md-1 col-sm-1" ></div>
+    <div class="col-lg-11 col-md-11 col-sm-11">
+      <table class="table">
+        <body>
+            <tr *ngForm="let Experiencia of expe">
+                  <td><h2>{{Experiencia.empresa}}</h2></td>
+                  <td>{{Experiencia.anoInicio}}</td>
+                  <td>{{Experiencia.anoFin}}</td>
+                  <td>{{Experiencia.descripcion}}</td>
+                  <td *ngIf="isLogged">
+                    <button class="btn btn-light" routerLink="/update/{{Experiencia.id}}">
+                      <i class="bi bi-pencil-fill"></i>EDITAR</button>
+                  </td>
+                  <!--ícono lápiz video 16, 1:35'-->
+                  <td *ngIf="isLogged">
+                    <button class="btn btn-danger" (click)="delete(Experiencia.id)">
+                      <i class="bi bi-trash-fill"></i></i>BORRAR</button>
+                  </td>
+            </tr>
+        </body>
+    </table>
+    </div>
+</div>
+
+
+    <!-- <div class="col-lg-1"></div>
     <div class="col-lg-11">
         <ul>
-            <li> 
+            <li>
             <h1>Trabajo 1 </h1> - <h3>(years)</h3></li>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odio repudiandae alias cupiditate praesentium magni culpa aliquam repellat! Natus dolor deleniti laboriosam modi architecto neque autem, nobis aspernatur libero debitis.
             </p>
-        </ul>    
+        </ul>
         <ul>
-            <li> 
+            <li>
             <h1>Trabajo 2 </h1> - <h3>(years)</h3></li>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odio repudiandae alias cupiditate praesentium magni culpa aliquam repellat! Natus dolor deleniti laboriosam modi architecto neque autem, nobis aspernatur libero debitis.
             </p>
-        </ul>    
+        </ul>
         <ul>
-        <li> 
+        <li>
             <h1>Trabajo 3 </h1> - <h3>(years)</h3></li>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odio repudiandae alias cupiditate praesentium magni culpa aliquam repellat! Natus dolor deleniti laboriosam modi architecto neque autem, nobis aspernatur libero debitis.
             </p>
-        </ul>    
-        </div>   
-    </div>    
-    
-        
+        </ul>
+        </div> -->
