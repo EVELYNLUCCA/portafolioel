@@ -1,6 +1,7 @@
 import { Experiencia } from './../../../model/experiencia';
 import { SExperienciaService } from './../../../service/s-experiencia.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-experiencia',
@@ -22,10 +23,10 @@ export class NewExperienciaComponent implements OnInit {
     const expe = new Experiencia(this.institucionExp, this.tituloExp, this.anoInicioExp, this.anoFinExp);
     this.sExperiencia.save(expe).subscribe(data=>{
       alert("Experiencia añadida");
-      this.router.navigate(['']);
+      this.router.navigate(['nuevaexp']);
     }, err=> {
     alert("Falló");
-    this.router.navigate(['']);
+    this.router.navigate(['nuevaexp']);
     }
     )
   }

@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
 import { NewExperienciaComponent } from './component/experiencia/new-experiencia/new-experiencia.component';
 import { EditExperienciaComponent } from './component/experiencia/edit-experiencia.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { EditExperienciaComponent } from './component/experiencia/edit-experienc
     LoginComponent,
     PortfolioComponent,
     NewExperienciaComponent,
-    EditExperienciaComponent
+    EditExperienciaComponent,
+
   ],
   imports: [
     BrowserModule,

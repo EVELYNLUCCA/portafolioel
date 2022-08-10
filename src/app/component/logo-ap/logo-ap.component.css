@@ -3,14 +3,40 @@
     margin: 0;
 }
 
-.container{
+.row .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.redes{
+
+.row .container .redes{
     margin-right: 0.5em;
+    display: flex;
 }
+.row .container .redes ul{
+  display: flex;
+  list-style: none;
+  height: 100%;
+  margin-bottom: 0;
+  align-items: center;
+}
+
+.row .container .redes ul li {
+  margin-right: 20px;
+  height: 40px;
+  overflow: hidden;
+  transition: all .3s;
+}
+
+.row .container .redes ul li:hover {
+  transform: scale(1.2);
+}
+
+.row .container .redes ul li img {
+  width: 100%;
+  height: 100%;
+}
+
 #logoAP{
     width: 150px;
 }
@@ -28,7 +54,7 @@ img{
     .container{
         flex-direction: column;
     }
-    
+
     .redes{
         display: flex;
         flex-direction: column;
@@ -42,4 +68,3 @@ img{
 
 
 
-    

@@ -6,31 +6,28 @@
 div{
     background-color: #a1b5cb;
     text-align: center;
-}
-.row div #foto-perfil{
-    position: absolute;
-    top: 830px;
+    position: relative;
 }
 
-@media(min-width:576px){
-    #foto-perfil{
-        position: absolute;
-        width: 15%;
-        border-radius: 100%;
-        box-shadow: 3px 3px 3px gray;
-        left: 3%;
-        top: 450px;
-    }
+.row div #foto-perfil{
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    z-index: 999;
+    border-radius: 100%;
+    box-shadow: 3px 3px 3px gray;
+    left: 3%;
 }
 
 @media(max-width:575px){
-    #foto-perfil{
+    .row div #foto-perfil{
         position: absolute;
         width: 30%;
         border-radius: 100%;
         box-shadow: 3px 3px 3px gray;
         left: 33%;
-        top: 800px;
+        bottom: -100px;
+        margin-bottom: 40px;
     }
 }
 
