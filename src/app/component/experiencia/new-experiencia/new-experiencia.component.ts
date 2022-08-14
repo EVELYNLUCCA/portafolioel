@@ -9,24 +9,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-experiencia.component.css']
 })
 export class NewExperienciaComponent implements OnInit {
-  institucionExp: string = '';
-  tituloExp: string = '';
-  anoInicioExp!: number;
-  anoFinExp!: number;
+  empresa: string = '';
+  anoInicio!: number;
+  anoFin!: number;
+  descripcion: string = '';
 
   constructor(private sExperiencia: SExperienciaService, private router:Router ){ }
 
   ngOnInit(): void {
   }
 
-  onCreate(): void{
-    const expe = new Experiencia(this.institucionExp, this.tituloExp, this.anoInicioExp, this.anoFinExp);
+  onCreate(e: Event): void{
+    e.preventDefault();
+
+    const expe = new Experiencia(this.empresa, this.anoInicio, this.anoFin, this.descripcion);
+
     this.sExperiencia.save(expe).subscribe(data=>{
       alert("Experiencia añadida");
-      this.router.navigate(['nuevaexp']);
+      this.router.navigate(['']);
     }, err=> {
     alert("Falló");
-    this.router.navigate(['nuevaexp']);
+    this.router.navigate(['']);
     }
     )
   }

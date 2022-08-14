@@ -1,19 +1,14 @@
 <div class="row">
     <h1>Proyectos realizados</h1>
     <div class="contenedor">
-        <div class="col-sm-12 col-md-7 col-lg-7 parte1">
-            <h3>Página web Comuna</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa at perferendis odit fuga molestiae, reprehenderit dicta libero quisquam perspiciatis, tempora veritatis neque magni iusto blanditiis animi odio dignissimos. Hic, veniam!</p>
-        </div>
-        <div class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 parte2">
-            <img src="../../assets/paginawebcomuna.png" class="img-fluid img-proyecto">
-        </div>
-        <div class="col-sm-12 col-md-7 col-lg-7 parte1">
-            <h3>Página web SweetHome</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa at perferendis odit fuga molestiae, reprehenderit dicta libero quisquam perspiciatis, tempora veritatis neque magni iusto blanditiis animi odio dignissimos. Hic, veniam!</p>
-        </div>
-        <div class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 parte2">
-            <img src="../../assets/paginawebSweetHome.png" class="img-fluid img-proyecto">
+        <div class="" *ngFor="let proyecto of proyectos">
+          <div class="col-sm-12 col-md-7 col-lg-7 parte1">
+              <h3>{{proyecto.nombreProyecto}}</h3>
+              <p>{{proyecto.descripcion}}</p>
+          </div>
+          <a href="proyecto.url" class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 parte2">
+              <img src="proyecto.fotoProyecto" class="img-fluid img-proyecto">
+          </a>
         </div>
 
     </div>

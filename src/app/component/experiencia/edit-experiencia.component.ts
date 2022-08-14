@@ -10,7 +10,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./edit-experiencia.component.css']
 })
 export class EditExperienciaComponent implements OnInit {
-  expLab : Experiencia = null;
+  empresa: string = '';
+  anoInicio: number = null;
+  anoFin: number = null;
+  descripcion: string = null;
 
   constructor(private sExperiencia: SExperienciaService,
     private activatedRouter:ActivatedRoute,
@@ -18,23 +21,23 @@ export class EditExperienciaComponent implements OnInit {
   { };
 
   ngOnInit(): void {
-    const id = this.activatedRouter.snapshot.params['id'];
-    this.sExperiencia.detail(id).subscribe(data => {
-      this.expLab = data;
-    }, err =>{
-      alert("Error al modificar experiencia");
-      this.router.navigate(['editexp/:id']);
-    }
-    )
+    const id = this.activatedRouter.snapshot.params['id']; //acá capturo el id de la experiencia que quiero modificar
   }
 
-  onUpdate():void{
+  onUpdate(e: Event):void{
+    e.preventDefault();
     const id = this.activatedRouter.snapshot.params['id'];
-    this.sExperiencia.update(id, this.expLab).subscribe(data=>{
-      this.router.navigate(['editexp/:id']);
+
+    this.sExperiencia.update(id, {
+      empresa: this.empresa,
+      anoInicio: this.anoFin,
+      anoFin: this.anoFin,
+      descripcion: this.descripcion
+    }).subscribe(data=>{
+      console.log(data);
     }, err =>{
+      console.log(err);
       alert("Error al modificar experiencia");
-      this.router.navigate(['editexp/:id']);
     }
     )
   }

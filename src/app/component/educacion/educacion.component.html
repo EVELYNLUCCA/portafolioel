@@ -1,24 +1,110 @@
 <div class="row">
-    <h1>Educación</h1>
-    <div class="col-lg-1"></div>
-    <div class="col-lg-11">
-        <ul>
-            <li> 
-            <h1>Estudio 1 </h1> - <h3>(years)</h3></li>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odio repudiandae alias cupiditate praesentium magni culpa aliquam repellat! Natus dolor deleniti laboriosam modi architecto neque autem, nobis aspernatur libero debitis.
-            </p>
-        </ul>    
-        <ul>
-            <li> 
-            <h1>Estudio 2 </h1> - <h3>(years)</h3></li>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odio repudiandae alias cupiditate praesentium magni culpa aliquam repellat! Natus dolor deleniti laboriosam modi architecto neque autem, nobis aspernatur libero debitis.
-            </p>
-        </ul>    
-        <ul>
-        <li> 
-            <h1>Estudio 3 </h1> - <h3>(years)</h3></li>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid odio repudiandae alias cupiditate praesentium magni culpa aliquam repellat! Natus dolor deleniti laboriosam modi architecto neque autem, nobis aspernatur libero debitis.
-            </p>
-        </ul>    
-        </div>   
-    </div>    
+  <h1>Educacion</h1>
+  <div class="col-lg-2 col-md-2 col-sm-2">
+    <a [routerLink]="['/nuevaedu']">
+      <button
+        type="button"
+        class="btn btn-dark"
+        *ngIf="isLogged"
+      >
+        Agregar educacion
+      </button>
+    </a>
+  </div>
+
+  <div class="col-lg-1 col-md-1 col-sm-1"></div>
+  <div class="col-lg-11 col-md-11 col-sm-11">
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let Educacion of educacion">
+          <td>
+            <h2>{{Educacion.institucionEdu}}</h2>
+          </td>
+          <td>{{ Educacion.tituloEdu }}</td>
+          <td>{{ Educacion.anoInicioEdu }}</td>
+          <td>{{ Educacion.anoFinEdu }}</td>
+
+          <div class="buttons">
+            <td *ngIf="isLogged" class="btn-edit">
+              <a [routerLink]="['/editedu/' + Educacion.idEdu]">
+                <button
+                  class="btn btn-light "
+                >
+                  <i class="bi bi-pencil-fill"></i>EDITAR
+                </button>
+              </a>
+            </td>
+
+            <!--ícono lápiz video 16, 1:35'-->
+            <td *ngIf="isLogged" class="btn-delete">
+              <button class="btn btn-danger" (click)="delete(Educacion.idEdu)">
+                <i class="bi bi-trash-fill"></i>BORRAR
+              </button>
+            </td>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<!-- <div class="row">
+  <h1>Educación</h1>
+  <div class="col-lg-1"></div>
+  <div class="col-lg-11">
+    <ul>
+      <li>
+        <h1>Bachiller en Ciencias Biológicas</h1>
+
+        <h3>5 años</h3>
+      </li>
+      <p>
+        Estudio secundario cursado en la Escuela de Enseñanza Media N° 204
+        "Domingo de Oro", de la ciudad de Rafaela, provincia de Santa Fe, desde
+        el año 1995 hasta el año 2000.
+      </p>
+    </ul>
+    <ul>
+      <li>
+        <h1>Argentina Programa</h1>
+
+        <h3>9 meses</h3>
+      </li>
+      <p>
+        Estudio cursado de manera online, con modalidad asincrónica, brindado
+        por el Ministerio de Desarrollo Productivo de la Nación Argentina y el
+        INTI, destinado a capacitar mano de obra necesaria en el rubro
+        tecnológico. Iniciado en el mes de noviembre de 2021 y finalizado el 31
+        de agosto de 2022.
+      </p>
+    </ul>
+    <ul>
+      <li>
+        <h1>Fullstack Python</h1>
+
+        <h3>4 meses</h3>
+      </li>
+      <p>
+        Curso realizado a través de la plataforma virtual de la Agencia de
+        Aprendizaje a lo largo de la vida, de la ciudad de Buenos Aires, el
+        marco del programa Codo a Codo, comenzado en marzo de 2022 y finalizado
+        en julio de ese mismo año.
+      </p>
+    </ul>
+    <ul>
+      <li>
+        <h1>Fullstack Javascript</h1>
+
+        <h3>4 meses</h3>
+      </li>
+      <p>
+        Curso realizado a través de la plataforma virtual de la Agencia de
+        Aprendizaje a lo largo de la vida, de la ciudad de Buenos Aires, el
+        marco del programa Codo a Codo, comenzado en agosto de 2022 y a
+        finalizar en diciembre de 2022.
+      </p>
+    </ul>
+  </div>
+</div> -->

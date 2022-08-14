@@ -1,14 +1,14 @@
 export class Experiencia {
   idExp? : number;
-  institucionExp?: string;
-  tituloExp?: string;
-  anoInicioExp?: number;
-  anoFinExp?: number;
+  empresa?: string;
+  anoInicio?: number;
+  anoFin?: number;
+  descripcion?: any;
 
-  constructor(institucionExp: string, tituloExp: string, anoInicioExp: number, anoFinExp: number){
-    this.institucionExp = institucionExp;
-    this.tituloExp = tituloExp;
-    this.anoInicioExp = anoFinExp;
-    this.anoFinExp = anoFinExp;
+  constructor(empresa: string, anoInicio: number, anoFin: number, descripcion: any){
+    this.empresa = empresa;
+    this.anoInicio = anoInicio;
+    this.anoFin = anoFin;
+    this.descripcion = descripcion;
   }
 }

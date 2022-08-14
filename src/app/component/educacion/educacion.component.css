@@ -8,3 +8,13 @@ div{
 h1, h3{
     display: inline;
 }
+
+.buttons{
+  position: absolute;
+  display: flex;
+  width: 200px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: row;
+  right: 20px;
+}

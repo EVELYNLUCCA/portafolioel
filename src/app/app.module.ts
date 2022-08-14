@@ -24,6 +24,12 @@ import { interceptorProvider } from './service/interceptor-service';
 import { FormsModule } from '@angular/forms';
 import { NewExperienciaComponent } from './component/experiencia/new-experiencia/new-experiencia.component';
 import { EditExperienciaComponent } from './component/experiencia/edit-experiencia.component';
+import { NeweducacionComponent } from './component/educacion/neweducacion.component';
+import { EditeducacionComponent } from './component/educacion/editeducacion.component';
+import { NuevaskillComponent } from './component/hys/nuevaskill.component';
+import { EditskillComponent } from './component/hys/editskill.component';
+import { EditproyectoComponent } from './component/proyecto/editproyecto.component';
+import { NuevoproyectoComponent } from './component/proyecto/nuevoproyecto.component';
 
 
 @NgModule({
@@ -44,7 +50,12 @@ import { EditExperienciaComponent } from './component/experiencia/edit-experienc
     PortfolioComponent,
     NewExperienciaComponent,
     EditExperienciaComponent,
-
+    NeweducacionComponent,
+    EditeducacionComponent,
+    NuevaskillComponent,
+    EditskillComponent,
+    EditproyectoComponent,
+    NuevoproyectoComponent,
   ],
   imports: [
     BrowserModule,

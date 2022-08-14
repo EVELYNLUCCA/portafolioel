@@ -1,6 +1,7 @@
 import { SExperienciaService } from './../../service/s-experiencia.service';
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/service/token.service';
+import { Experiencia } from 'src/app/model/experiencia';
 
 @Component({
   selector: 'app-experiencia',
@@ -8,12 +9,13 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./experiencia.component.css']
 })
 export class ExperienciaComponent implements OnInit {
-  expe: any = [];
+  expe: Experiencia [] = [];
   constructor(private sExperiencia: SExperienciaService, private tokenService:TokenService) { }
 
   isLogged = false;
 
   ngOnInit(): void {
+    this.cargarExperiencia();
     if(this.tokenService.getToken()){
       this.isLogged = true;
     }else{
@@ -24,6 +26,7 @@ export class ExperienciaComponent implements OnInit {
   cargarExperiencia(): void{
     this.sExperiencia.lista().subscribe(data => {
       this.expe = data;
+      console.log(this.expe);
     })
   }
 
@@ -35,7 +38,7 @@ export class ExperienciaComponent implements OnInit {
         }, err => {
           alert("No se pudo borrar la experiencia");
         }
-    )
+      )
     }
   }
 

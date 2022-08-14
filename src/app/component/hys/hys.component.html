@@ -1,15 +1,30 @@
 <div class="row">
-    <h1>Hard & Soft Skills</h1>
+  <h1>Hard & Soft Skills</h1>
+  <div class="col-lg-2 col-md-2 col-sm-2">
+    <a [routerLink]="['/nuevaskill']">
+      <button
+        type="button"
+        class="btn btn-dark"
+        *ngIf="isLogged"
+      >
+        Agregar skill
+      </button>
+    </a>
+  </div>
 
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-            [percent]="95"
-            [radius]="100"
-            [title]="'HTML'"
-            [titleColor]="'#a1b5cb'"
-            [titleFontSize]="'2.3em'"
-            [showSubtitle]="false"
-            [imageSrc]="'../../assets/html5.png'"
+  <div class="col-lg-1 col-md-1 col-sm-1"></div>
+  <div class="col-lg-11 col-md-11 col-sm-11">
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let skill of skills">
+          <circle-progress
+          [radius]="100"
+          [title]="skill.nombreSkill"
+          [titleColor]="'#a1b5cb'"
+          [titleFontSize]="'2.3em'"
+          [showSubtitle]="false"
+          [percent]="skill.porcentajeSkill"
+            [imageSrc]="skill.imgSkill"
             [imageHeight]="100"
             [imageWidth]="100"
             [showImage]="true"
@@ -21,6 +36,36 @@
             [animation]="true"
             [animationDuration]="700"
         ></circle-progress>
+
+          <div class="buttons">
+            <td *ngIf="isLogged" class="btn-edit">
+              <a [routerLink]="['/editskill/' + skill.idSkill]">
+                <button
+                  class="btn btn-light "
+                >
+                  <i class="bi bi-pencil-fill"></i>EDITAR
+                </button>
+              </a>
+            </td>
+
+            <!--ícono lápiz video 16, 1:35'-->
+            <td *ngIf="isLogged" class="btn-delete">
+              <button class="btn btn-danger" (click)="delete(skill.idSkill)">
+                <i class="bi bi-trash-fill"></i>BORRAR
+              </button>
+            </td>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- <div class="row">
+    <h1></h1>
+
+    <div class="text-center col-sm-4 col-md-4 col-lg-4">
+
     </div>
 
     <div class="text-center col-sm-4 col-md-4 col-lg-4">
@@ -129,4 +174,4 @@
             [animationDuration]="700"
         ></circle-progress>
     </div>
-</div>
+</div> -->
