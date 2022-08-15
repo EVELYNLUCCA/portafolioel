@@ -6,8 +6,8 @@ export class persona {
   acercaDeMi: string;
   fotoPerfil: string;
 
-  constructor(nombre: string, apellido:string, titulo: string, acercaDeMi: string, fotoPerfil: string){
-      this.nombre = nombre,
+  constructor( nombre: string, apellido:string, titulo: string, acercaDeMi: string, fotoPerfil: string){
+    this.nombre = nombre,
       this.apellido = apellido,
       this.titulo = titulo,
       this.acercaDeMi = acercaDeMi,

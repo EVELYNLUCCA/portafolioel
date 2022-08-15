@@ -10,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./edit-experiencia.component.css']
 })
 export class EditExperienciaComponent implements OnInit {
+  experiencia: Experiencia = null;
+
   empresa: string = '';
   anoInicio: number = null;
   anoFin: number = null;
@@ -38,6 +40,7 @@ export class EditExperienciaComponent implements OnInit {
     }, err =>{
       console.log(err);
       alert("Error al modificar experiencia");
+      this.router.navigate(['']);
     }
     )
   }

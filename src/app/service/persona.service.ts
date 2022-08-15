@@ -16,7 +16,7 @@ export class PersonaService {
 
 
 public getPersona():Observable<persona[]>{
-  return this.http.get<persona[]>(this.apiURL + '/persona/ver/persona');
+  return this.http.get<persona[]>(`${this.apiURL}/persona/ver/persona`);
 }
 
 public postPersona(body: any): Observable<any>{
@@ -28,6 +28,6 @@ public putPersona(body: any, id: number): Observable<any>{
 }
 
 public deletePersona(id: number): Observable<void>{
-  return this.http.delete<void>(`${this.apiURL}/persona/borrar/${id}`)
+  return this.http.delete<void>(`${this.apiURL}persona/borrar/${id}`)
 }
 }

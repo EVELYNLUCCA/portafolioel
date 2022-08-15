@@ -30,6 +30,7 @@ export class NuevaskillComponent implements OnInit {
   onCreate(): void{
     this.skillService.createSkill(this.formToSend).subscribe((data) => {
       alert("Se ha creado correctamente! :D");
+      this.router.navigate(['']);
     }, (err) => {
       alert("Ha ocurrido un error: " + err);
     })

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ProyectoService } from './../../service/proyecto.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,7 +12,7 @@ export class NuevoproyectoComponent implements OnInit {
   form: any = {
   };
 
-  constructor(private proyectoService:ProyectoService) { }
+  constructor(private proyectoService:ProyectoService, private router:Router) { }
 
   ngOnInit(): void {}
 
@@ -19,6 +20,7 @@ export class NuevoproyectoComponent implements OnInit {
     this.proyectoService.createProyecto(this.form).subscribe(data => {
       alert('creado correctamente!');
       console.log(data);
+      this.router.navigate(['']);
     }, err => {
       console.log(err);
     })

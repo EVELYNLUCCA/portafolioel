@@ -38,6 +38,7 @@ export class EditskillComponent implements OnInit {
 
     this.skillService.updateSkill(formData, this.id).subscribe((data) => {
       alert("Se ha editado correctamente! :D");
+      this.router.navigate(['']);
     }, (err) => {
       alert("Ha ocurrido un error: " + err);
     })

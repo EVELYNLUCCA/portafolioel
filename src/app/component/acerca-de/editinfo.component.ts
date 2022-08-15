@@ -37,10 +37,11 @@ export class EditinfoComponent implements OnInit {
 
     this.personaService.putPersona(formData, this.id).subscribe(data => {
       alert('editado correctamente :D');
-      this.router.navigate([]);
+      this.router.navigate(['']);
     }, err => {
       alert('ha ocurrido un error');
       console.log(err);
+      this.router.navigate(['']);
     })
   }
 

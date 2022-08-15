@@ -21,11 +21,11 @@ export class AcercaDeComponent implements OnInit {
 
   ngOnInit(): void {
     this.personaservice.getPersona().subscribe(data => {
-      this.info = data[0];
+      this.info = data[data.length - 1];
       console.log(this.info);
     }, err => {
       console.log(err);
-      alert('salio mal ')
+      alert('salio mal')
     })
 
     if(this.tokenService.getToken()){
@@ -35,7 +35,7 @@ export class AcercaDeComponent implements OnInit {
     }
   }
 
-  deletePersona(id?:number){
+  deletePersona(id:number){
     if(id != undefined){
       this.personaservice.deletePersona(id).subscribe(
         (data: any) => {

@@ -19,7 +19,8 @@ export class NeweducacionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCreate(): void{
+  onCreate(e: Event): void{
+    e.preventDefault
     const educacion = new Educacion(this.institucionEdu, this.tituloEdu, this.anoInicioEdu, this.anoFinEdu);
 
     this.educacionS.save(educacion).subscribe(

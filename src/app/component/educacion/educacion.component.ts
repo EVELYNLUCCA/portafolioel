@@ -22,6 +22,7 @@ export class EducacionComponent implements OnInit {
     this.educacionS.lista().subscribe(
       data =>{
         this.educacion = data;
+        this.router.navigate(['']);
         console.log(data);
       }
     )
@@ -41,6 +42,7 @@ export class EducacionComponent implements OnInit {
       this.educacionS.delete(id).subscribe(
         data =>{
           this.cargarEducacion()
+          this.router.navigate(['']);
         }, err =>{
           alert("No se pudo eliminar");
         }
