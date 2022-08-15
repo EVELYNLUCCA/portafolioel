@@ -1,3 +1,4 @@
+import { TokenService } from './../../service/token.service';
 import { SkillsService } from './../../service/skills.service';
 import { Skills } from './../../model/skills';
 import { Component, OnInit } from '@angular/core';
@@ -11,12 +12,18 @@ import { Router } from '@angular/router';
 export class HysComponent implements OnInit {
   skills: Skills[] = [];
 
-  constructor(private skillsService: SkillsService, private router: Router) { }
+  constructor(private skillsService: SkillsService, private router: Router, private tokenService:TokenService) { }
 
-  isLogged = true;
+  isLogged = false;
 
   ngOnInit(): void {
     this.cargarSkills();
+
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
   }
 
   cargarSkills(){

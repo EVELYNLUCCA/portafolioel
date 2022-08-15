@@ -30,6 +30,8 @@ import { NuevaskillComponent } from './component/hys/nuevaskill.component';
 import { EditskillComponent } from './component/hys/editskill.component';
 import { EditproyectoComponent } from './component/proyecto/editproyecto.component';
 import { NuevoproyectoComponent } from './component/proyecto/nuevoproyecto.component';
+import { EditinfoComponent } from './component/acerca-de/editinfo.component';
+import { NuevapersonaComponent } from './component/acerca-de/nuevapersona/nuevapersona.component';
 
 
 @NgModule({
@@ -56,6 +58,8 @@ import { NuevoproyectoComponent } from './component/proyecto/nuevoproyecto.compo
     EditskillComponent,
     EditproyectoComponent,
     NuevoproyectoComponent,
+    EditinfoComponent,
+    NuevapersonaComponent,
   ],
   imports: [
     BrowserModule,

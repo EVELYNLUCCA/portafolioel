@@ -1,1 +1,27 @@
-<p>editproyecto works!</p>
+<div class="container">
+  <div class="row">
+    <div>
+      <form  novalidate #f="ngForm">
+        <div class="form-group">
+          <label for="institucionEdu">Nombre proyecto</label>
+          <input type="text" class="form-control" id="institucionEdu" name="institucionEdu" [(ngModel)]="form.nombreProyecto" required>
+        </div>
+        <div class="form-group">
+          <label for="anoInicioEdu">Descripcion</label>
+          <input type="text" class="form-control" id="anoInicioEdu" name="anoInicioEdu" [(ngModel)]="form.descripcion" required>
+        </div>
+        <div class="form-group">
+          <label for="anoFinEdu">Url</label>
+          <input type="text" class="form-control" id="anoFinEdu" name="anoFinEdu" [(ngModel)]="form.url" required>
+        </div>
+        <div class="form-group">
+          <label for="tituloEdu">Url foto del proyecto</label>
+          <input type="text" class="form-control" id="tituloEdu" name="tituloEdu" [(ngModel)]="form.fotoProyecto" required>
+        </div>
+        <button class="btn btn-primary" (click)="handleEdit()">
+            Agregar educacion
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -29,4 +29,11 @@ export class ProyectoComponent implements OnInit {
     }
   }
 
+  deleteProyecto(id: number): void{
+    this.proyectoService.deleteProyecto(id).subscribe(data => {
+      alert('se ha eliminado correctamente :D')
+      this.getProjects();
+    })
+  }
+
 }

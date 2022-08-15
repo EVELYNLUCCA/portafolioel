@@ -10,12 +10,24 @@ import { persona } from '../model/persona.model';
   providedIn: 'root'
 })
 export class PersonaService {
-  private apiURL=environment.apiURL;
+  apiURL= environment.apiURL;
 
   constructor(private http: HttpClient) { }
 
 
-public getPersona():Observable<persona>{
-  return this.http.get<persona>(this.apiURL +'persona/ver/persona');
+public getPersona():Observable<persona[]>{
+  return this.http.get<persona[]>(this.apiURL + '/persona/ver/persona');
+}
+
+public postPersona(body: any): Observable<any>{
+  return this.http.post<any>(`${this.apiURL}/persona/nuevo/persona`, body)
+}
+
+public putPersona(body: any, id: number): Observable<any>{
+  return this.http.put<any>(`${this.apiURL}/persona/editar/${id}`, body)
+}
+
+public deletePersona(id: number): Observable<void>{
+  return this.http.delete<void>(`${this.apiURL}/persona/borrar/${id}`)
 }
 }

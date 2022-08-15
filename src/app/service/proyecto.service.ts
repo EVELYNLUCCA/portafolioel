@@ -17,14 +17,14 @@ export class ProyectoService {
   }
 
   public createProyecto(proyecto:Proyecto): Observable<Proyecto>{
-    return this.http.post<Proyecto>(`${this.ApiProyecto}nuevo`, proyecto);
+    return this.http.post<Proyecto>(`${this.ApiProyecto}nuevo/proyecto`, proyecto);
   }
 
   public deleteProyecto(id: number): Observable<void>{
     return this.http.delete<void>(`${this.ApiProyecto}borrar/${id}`);
   }
 
-  public updateProyecto(proyecto:Proyecto, id:number): Observable<Proyecto>{
+  public updateProyecto(proyecto:FormData, id:number): Observable<Proyecto>{
     return this.http.put<Proyecto>(`${this.ApiProyecto}editar/${id}`, proyecto);
   }
 }

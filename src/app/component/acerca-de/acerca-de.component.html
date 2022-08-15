@@ -1,17 +1,48 @@
 <div class="row">
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" id="image-container">
-        <img src="../../assets/foto perfil.jpg" class="img-fluid" id="foto-perfil">
+        <img src="{{info.fotoPerfil}}" class="img-fluid" id="foto-perfil">
     </div>
 
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <p id="nombre">Evelyn Paola Lucca</p>
-        <p>Full Stack Developer Jr</p>
+        <p id="nombre">{{info.nombre}} {{info.apellido}}</p>
+        <p>{{info.titulo}}</p>
     </div>
 
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
         <span>
             <h1>Acerca de mí</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus iusto odio ipsa culpa porro quia nam aliquam, minus, doloremque ducimus ex. Officiis molestias, inventore laboriosam dicta unde maiores iure obcaecati.</p>
+            <p>{{info.acercaDeMi}}</p>
         </span>
+    </div>
+
+    <div class="buttons">
+      <div class="col-lg-2 col-md-2 col-sm-2">
+        <a [routerLink]="['/nuevapersona']">
+          <button
+            type="button"
+            class="btn btn-dark"
+            *ngIf="isLogged"
+          >
+            -AGREGAR PERFIL-
+          </button>
+        </a>
+      </div>
+
+      <td *ngIf="isLogged">
+        <a [routerLink]="['/editinfo/'+ info.id]">
+          <button
+            class="btn btn-light"
+          >
+            <i class="bi bi-pencil-fill"></i>EDITAR
+          </button>
+        </a>
+      </td>
+
+      <!--ícono lápiz video 16, 1:35'-->
+      <td *ngIf="isLogged">
+        <button class="btn btn-danger" (click)="deletePersona(info.id)">
+          <i class="bi bi-trash-fill"></i>BORRAR
+        </button>
+      </td>
     </div>
 </div>

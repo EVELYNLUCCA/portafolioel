@@ -1,15 +1,45 @@
 <div class="row">
     <h1>Proyectos realizados</h1>
+    <div class="col-lg-2 col-md-2 col-sm-2">
+      <a [routerLink]="['/nuevoproyecto']">
+        <button
+          type="button"
+          class="btn btn-dark"
+          *ngIf="isLogged"
+        >
+          -AGREGAR PROYECTO-
+        </button>
+      </a>
+    </div>
+
     <div class="contenedor">
         <div class="" *ngFor="let proyecto of proyectos">
+
+
           <div class="col-sm-12 col-md-7 col-lg-7 parte1">
               <h3>{{proyecto.nombreProyecto}}</h3>
               <p>{{proyecto.descripcion}}</p>
+
+              <td *ngIf="isLogged">
+                <a [routerLink]="['/editproyecto/'+ proyecto.idProy]">
+                  <button
+                    class="btn btn-light"
+                  >
+                    <i class="bi bi-pencil-fill"></i>EDITAR
+                  </button>
+                </a>
+              </td>
+
+              <!--ícono lápiz video 16, 1:35'-->
+              <td *ngIf="isLogged">
+                <button class="btn btn-danger" (click)="deleteProyecto(proyecto.idProy)">
+                  <i class="bi bi-trash-fill"></i>BORRAR
+                </button>
+              </td>
           </div>
-          <a href="proyecto.url" class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 parte2">
-              <img src="proyecto.fotoProyecto" class="img-fluid img-proyecto">
+          <a href="{{proyecto.url}}" class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 parte2">
+              <img src="{{proyecto.fotoProyecto}}" class="img-fluid img-proyecto">
           </a>
         </div>
-
     </div>
 </div>
