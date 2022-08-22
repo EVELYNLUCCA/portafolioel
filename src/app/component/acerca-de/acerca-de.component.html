@@ -1,19 +1,22 @@
 <div class="row">
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" id="image-container">
-        <img src="{{info.fotoPerfil}}" class="img-fluid" id="foto-perfil">
+    <div class="" *ngIf="info">
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" id="image-container">
+          <img src="{{info.fotoPerfil}}" class="img-fluid" id="foto-perfil">
+      </div>
+
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+          <p id="nombre">{{info.nombre}} {{info.apellido}}</p>
+          <p>{{info.titulo}}</p>
+      </div>
+
+      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+          <span>
+              <h1>Acerca de mí</h1>
+              <p>{{info.acercaDeMi}}</p>
+          </span>
+      </div>
     </div>
 
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <p id="nombre">{{info.nombre}} {{info.apellido}}</p>
-        <p>{{info.titulo}}</p>
-    </div>
-
-    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-        <span>
-            <h1>Acerca de mí</h1>
-            <p>{{info.acercaDeMi}}</p>
-        </span>
-    </div>
 
     <div class="buttons">
       <div class="col-lg-2 col-md-2 col-sm-2">
@@ -28,7 +31,7 @@
         </a>
       </div>
 
-      <td *ngIf="isLogged">
+      <td *ngIf="isLogged && info">
         <a [routerLink]="['/editinfo/'+ info.id]">
           <button
             class="btn btn-light"
@@ -38,8 +41,8 @@
         </a>
       </td>
 
-      
-      <td *ngIf="isLogged">
+
+      <td *ngIf="isLogged && info" >
         <button class="btn btn-danger" (click)="deletePersona(info.id)">
           <i class="bi bi-trash-fill"></i>BORRAR
         </button>

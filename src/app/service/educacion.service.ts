@@ -26,7 +26,7 @@ URL = `${environment.apiURL}/`;
   }
 
   public update(id:number, educacion:FormData): Observable<Educacion>{
-    return this.http.put<Educacion>(`${this.URL}update/${id}`, educacion);
+    return this.http.put<Educacion>(`${this.URL}educacion/editar/${id}`, educacion);
   }
 
   public  delete(id:number): Observable<void>{

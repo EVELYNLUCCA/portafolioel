@@ -15,7 +15,7 @@ export class EditeducacionComponent implements OnInit {
   constructor(private educacionS: EducacionService, private activatedRouter: ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
-    const id = this.activatedRouter.snapshot.params['id'];
+    this.id = this.activatedRouter.snapshot.params['id'];
   }
 
   handleChange(e:Event): void {
@@ -32,16 +32,17 @@ export class EditeducacionComponent implements OnInit {
     onCreate(): void{
       const formData = new FormData();
 
-      formData.append('institucionEdu', this.formToSend.institucionEdu);
-      formData.append('tituloEdu', this.formToSend.tituloEdu);
-      formData.append('anoInicioEdu', this.formToSend.anoInicioEdu);
-      formData.append('anoFinEdu', this.formToSend.anoFinEdu);
+      formData.append('institucion', this.formToSend.institucion);
+      formData.append('titulo', this.formToSend.titulo);
+      formData.append('anoInicio', this.formToSend.anoInicio);
+      formData.append('anoFin', this.formToSend.anoFin);
 
       this.educacionS.update(this.id, formData).subscribe((data) => {
         alert("Se ha editado correctamente! :D");
         this.router.navigate(['']);
       }, (err) => {
-        alert("Ha ocurrido un error: " + err);
+        alert("Ha ocurrido un error: ");
+        console.log(err);
       })
     }
 }

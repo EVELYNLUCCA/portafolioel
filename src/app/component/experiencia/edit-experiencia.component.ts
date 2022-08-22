@@ -13,8 +13,8 @@ export class EditExperienciaComponent implements OnInit {
   experiencia: Experiencia = null;
 
   empresa: string = '';
-  anoInicio: number = null;
-  anoFin: number = null;
+  anoInicio: any = null;
+  anoFin: any = null;
   descripcion: string = null;
 
   constructor(private sExperiencia: SExperienciaService,
@@ -30,17 +30,20 @@ export class EditExperienciaComponent implements OnInit {
     e.preventDefault();
     const id = this.activatedRouter.snapshot.params['id'];
 
-    this.sExperiencia.update(id, {
-      empresa: this.empresa,
-      anoInicio: this.anoFin,
-      anoFin: this.anoFin,
-      descripcion: this.descripcion
-    }).subscribe(data=>{
+    const formData = new FormData();
+
+    formData.append('empresa', this.empresa);
+    formData.append('anoFin', this.anoFin);
+    formData.append('anoInicio', this.anoInicio);
+    formData.append('descripcion', this.descripcion);
+
+    this.sExperiencia.update(id, formData).subscribe(data=>{
       console.log(data);
+      alert("Experiencia modificada correctamente!");
+      this.router.navigate(['']);
     }, err =>{
       console.log(err);
       alert("Error al modificar experiencia");
-      this.router.navigate(['']);
     }
     )
   }

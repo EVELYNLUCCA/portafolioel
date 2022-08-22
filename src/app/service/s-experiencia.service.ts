@@ -23,7 +23,7 @@ export class SExperienciaService {
   public save(experiencia:Experiencia): Observable<any>{
     return this.Http.post<any>(this.expURL + 'nuevo/experiencia', experiencia)
   }
-public update(id:number, experiencia:Experiencia): Observable<any>{
+public update(id:number, experiencia:FormData): Observable<any>{
     return this.Http.put<any>(this.expURL + `editar/${id}`, experiencia);
   }
 

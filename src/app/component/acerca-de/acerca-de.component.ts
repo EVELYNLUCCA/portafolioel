@@ -16,10 +16,6 @@ export class AcercaDeComponent implements OnInit {
   isLogged = false;
 
   cargarInfo(): void{
-
-  }
-
-  ngOnInit(): void {
     this.personaservice.getPersona().subscribe(data => {
       this.info = data[data.length - 1];
       console.log(this.info);
@@ -27,6 +23,10 @@ export class AcercaDeComponent implements OnInit {
       console.log(err);
       alert('salio mal')
     })
+  }
+
+  ngOnInit(): void {
+    this.cargarInfo();
 
     if(this.tokenService.getToken()){
       this.isLogged = true;
@@ -39,10 +39,11 @@ export class AcercaDeComponent implements OnInit {
     if(id != undefined){
       this.personaservice.deletePersona(id).subscribe(
         (data: any) => {
-          alert('borrado correctamente')
+          alert('borrado correctamente');
           this.cargarInfo();
         }, (err: any) => {
           alert("No se pudo borrar la info");
+          console.log(err);
         }
       )
     }
