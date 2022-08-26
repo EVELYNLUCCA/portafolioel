@@ -1,8 +1,11 @@
 div{
     background-color: #a1b5cb;
-    
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
-app-social{
+/*app-social{
     float: right;
     margin-top: 25px;
-}
+}*/

@@ -3,6 +3,10 @@
     <div>
       <form novalidate #f="ngForm">
         <div class="form-group">
+          <div class="form-group">
+            <label for="banner">Banner</label>
+            <input type="text" class="form-control" id="banner" name="banner" [(ngModel)]="info.banner" required>
+          </div>
           <label for="nombre">Nombre</label>
           <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="info.nombre" required>
         </div>

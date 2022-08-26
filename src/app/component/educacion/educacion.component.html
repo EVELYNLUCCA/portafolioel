@@ -7,30 +7,31 @@
         class="btn btn-dark"
         *ngIf="isLogged"
       >
-        -AGREGAR EDUCACIÓN-
+      AGREGAR
       </button>
     </a>
   </div>
 
   <div class="col-lg-1 col-md-1 col-sm-1"></div>
   <div class="col-lg-11 col-md-11 col-sm-11">
-    <table class="table">
-      <tbody>
-        <tr *ngFor="let Educacion of educacion">
-          <td>
-            <h2>{{Educacion.institucionEdu}}</h2>
+    <table class="table col-lg-11 col-md-11 col-sm-11 col-xs-11">
+      <tbody class= "col-lg-11 col-md-11 col-sm-11 col-xs-1!">
+        <tr *ngFor="let Educacion of educacion" class="educacion_container">
+          <td class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h2 class="col-lg-4 col-md-4 col-sm-4 col-xs-4">{{Educacion.institucionEdu}}</h2>
           </td>
-          <td>{{ Educacion.tituloEdu }}</td>
-          <td>{{ Educacion.anoInicioEdu }}</td>
-          <td>{{ Educacion.anoFinEdu }}</td>
+          <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">{{ Educacion.tituloEdu }}</td>
+          <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{ Educacion.anoInicioEdu }}</td>
+          <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{ Educacion.anoFinEdu }}</td>
 
-          <div class="buttons">
+          <div class="buttons" style="background-color: transparent;">
             <td *ngIf="isLogged" class="btn-edit">
               <a [routerLink]="['/editedu/' + Educacion.idEdu]">
                 <button
                   class="btn btn-light "
                 >
-                  <i class="bi bi-pencil-fill"></i>EDITAR
+                  <i class="bi bi-pencil-fill"></i>
+                  <p class="button_text">EDITAR</p>
                 </button>
               </a>
             </td>
@@ -38,7 +39,8 @@
             <!--ícono lápiz video 16, 1:35'-->
             <td *ngIf="isLogged" class="btn-delete">
               <button class="btn btn-danger" (click)="delete(Educacion.idEdu)">
-                <i class="bi bi-trash-fill"></i>BORRAR
+                <i class="bi bi-trash-fill"></i>
+                <p class="button_text">BORRAR</p>
               </button>
             </td>
           </div>

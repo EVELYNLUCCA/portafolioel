@@ -7,7 +7,7 @@
         class="btn btn-dark"
         *ngIf="isLogged"
       >
-        -AGREGAR SKILLS-
+        AGREGAR
       </button>
     </a>
   </div>
@@ -35,7 +35,8 @@
             [innerStrokeColor]="'black'"
             [animation]="true"
             [animationDuration]="700"
-        ></circle-progress>
+            class="progreso"
+            ></circle-progress>
 
           <div class="buttons">
             <td *ngIf="isLogged" class="btn-edit">

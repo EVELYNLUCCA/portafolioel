@@ -2,7 +2,6 @@ import { PersonaService } from './../../service/persona.service';
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/service/token.service';
 import { Router } from '@angular/router';
-import { persona } from 'src/app/model/persona.model';
 
 @Component({
   selector: 'app-acerca-de',
@@ -11,6 +10,7 @@ import { persona } from 'src/app/model/persona.model';
 })
 export class AcercaDeComponent implements OnInit {
   info: any = {};
+
 
   constructor(private personaservice: PersonaService, private tokenService:TokenService, private router:Router) { }
   isLogged = false;
@@ -48,6 +48,4 @@ export class AcercaDeComponent implements OnInit {
       )
     }
   }
-
-
 }

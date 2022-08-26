@@ -9,7 +9,31 @@
 .parte1, .parte2{
     display: inline-block;
     text-align: justify;
-}   
+}
 .img-proyecto{
     box-shadow: 10px 10px 30px  #000000;
+}
+
+.button{
+  display: none;
+}
+
+@media(max-width:575px){
+  .proyecto_div{
+    display: flex;
+    margin-top: 60px;
+  }
+
+  .parte1{
+    width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .img-proyecto{
+    position: relative;
+    width: 40%;
+    width: 100px;
+    box-shadow: 2px 2px 3px #00000080;
+  }
 }

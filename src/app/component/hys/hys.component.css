@@ -2,10 +2,20 @@
     background-color:#a1b5cb ;
     padding: 20px;
     margin: 0;
+    display: flex;
 }
 
 tbody{
   display: flex;
   width: 100%;
   flex-wrap: wrap;
+}
+
+@media(max-width:575px){
+  tr{
+    width: 50%;
+    position: relative;
+  }
+
+
 }

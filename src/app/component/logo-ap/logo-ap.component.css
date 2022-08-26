@@ -24,7 +24,6 @@
 .row .container .redes ul li {
   margin-right: 20px;
   height: 60px;
-  overflow: hidden;
   transition: all .3s;
 }
 
@@ -55,14 +54,19 @@ img{
         flex-direction: column;
     }
 
+    .logo{
+      height: 50%;
+    }
+
     .redes{
+      height: 50%;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
     .redes img{
         margin: 0.2em;
-
+        object-fit: contain;
     }
 }
 

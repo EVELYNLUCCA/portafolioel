@@ -20,19 +20,38 @@ div{
 }
 
 @media(max-width:575px){
-    .row div #foto-perfil{
-        position: absolute;
-        width: 30%;
-        border-radius: 100%;
-        box-shadow: 3px 3px 3px gray;
-        left: 33%;
-        bottom: -100px;
-        margin-bottom: 40px;
-    }
+  .acerca_de_container{
+    flex-direction: column;
+    height: 30vh;
+    justify-content: space-evenly;
+  }
+
+  .acerca_de_container div #foto-perfil{
+    position: absolute;
+    max-width: 130px;
+    height: 130px;
+    align-self: center;
+    left: 0%;
+    top: -100px;
+  }
 }
 
 
 #nombre{
     font-weight: bold;
     margin-top: 30%;
+}
+
+.acerca_de_container{
+  display: flex;
+}
+
+#info_usuario{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#info_usuario p{
+  margin: 0;
 }

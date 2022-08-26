@@ -12,9 +12,27 @@ h1, h3{
 .buttons{
   position: absolute;
   display: flex;
-  width: 200px;
   align-items: flex-end;
   justify-content: flex-end;
-  flex-direction: row;
+  flex-direction: column;
   right: 20px;
 }
+.button_text{
+  display: none;
+}
+
+@media(max-width:575px){
+  .buttons{
+    bottom: 0;
+  }
+  
+  .button_text{
+    display: none;
+  }
+
+  .educacion_container{
+    position: relative;
+  }
+}
+
+

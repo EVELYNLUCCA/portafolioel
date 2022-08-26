@@ -1,4 +1,6 @@
+import { PersonaService } from 'src/app/service/persona.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-banner',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
+  info: any = {};
 
-  constructor() { }
+  constructor(private personaservice: PersonaService) { }
+
+  cargarInfo(): void{
+    this.personaservice.getPersona().subscribe(data => {
+      this.info = data[data.length - 1];
+      console.log(this.info);
+    }, err => {
+      console.log(err);
+      alert('salio mal')
+    })
+  }
 
   ngOnInit(): void {
+    this.cargarInfo();
   }
+
+
+
 
 }

@@ -3,6 +3,10 @@
     <div>
       <form novalidate #f="ngForm">
         <div class="form-group">
+          <label for="banner">Banner</label>
+          <input type="text" class="form-control" id="banner" name="banner" [(ngModel)]="infoEditada.banner" required>
+        </div>
+        <div class="form-group">
           <label for="nombre">Nombre</label>
           <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="infoEditada.nombre" required>
         </div>
@@ -22,6 +26,7 @@
           <label for="foto perfil">Foto de perfil</label>
           <input type="text" class="form-control" id="foto perfil" name="foto perfil" [(ngModel)]="infoEditada.fotoPerfil" required>
         </div>
+
 
         <button class="btn btn-primary" (click)="editarInfo()">
             EDITAR

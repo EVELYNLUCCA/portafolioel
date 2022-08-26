@@ -14,7 +14,8 @@ export class EditinfoComponent implements OnInit {
     apellido: '',
     titulo: '',
     acercaDeMi: '',
-    fotoPerfil: ''
+    fotoPerfil: '',
+    banner: ''
   };
 
   id: number;
@@ -34,6 +35,7 @@ export class EditinfoComponent implements OnInit {
     formData.append('titulo', this.infoEditada.titulo);
     formData.append('acercaDeMi', this.infoEditada.acercaDeMi);
     formData.append('fotoPerfil', this.infoEditada.fotoPerfil);
+    formData.append('fotoBanner', this.infoEditada.banner);
 
     this.personaService.putPersona(formData, this.id).subscribe(data => {
       alert('editado correctamente :D');

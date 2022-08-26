@@ -14,7 +14,8 @@ export class NuevapersonaComponent implements OnInit {
     apellido: '',
     titulo: '',
     acercaDeMi: '',
-    fotoPerfil: ''
+    fotoPerfil: '',
+    banner: ''
   };
 
   constructor(private personaService: PersonaService, private router:Router) { }
@@ -30,6 +31,7 @@ export class NuevapersonaComponent implements OnInit {
     formData.append('titulo', this.info.titulo);
     formData.append('acercaDeMi', this.info.acercaDeMi);
     formData.append('fotoPerfil', this.info.fotoPerfil);
+    formData.append('fotoBanneer', this.info.banner);
 
     this.personaService.postPersona(this.info).subscribe(data => {
       alert('agregado correctamente :D');
