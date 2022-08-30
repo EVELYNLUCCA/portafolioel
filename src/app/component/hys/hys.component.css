@@ -18,6 +18,12 @@ tbody{
   display: flex;
   width: 100%;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+tbody tr div{
+  display: flex;
+  justify-content: center;
 }
 
 @media(max-width:575px){

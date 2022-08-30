@@ -55,18 +55,18 @@
   <table id="tabla" class="table col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <thead>
       <tr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <th class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">Institución Educativa</th>
-        <th class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">Año Inicio</th>
-        <th class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">Año Fin</th>
-        <th class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">Terminología</th>
+        <th class="col col-lg-4 col-md-4 ">Institución Educativa</th>
+        <th class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">Año Inicio</th>
+        <th class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">Año Fin</th>
+        <th class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">Terminología</th>
       </tr>
     </thead>
     <tbody *ngFor="let Educacion of educacion" class="educacion_container">
       <tr class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-        <td class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">{{Educacion.institucionEdu}}</td>
-        <td class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">{{Educacion.anoInicioEdu }}</td>
-        <td class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">{{Educacion.anoFinEdu }}</td>
-        <td class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">{{Educacion.tituloEdu }}</td>
+        <td class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">{{Educacion.institucionEdu}}</td>
+        <td class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">{{Educacion.anoInicioEdu }}</td>
+        <td class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">{{Educacion.anoFinEdu }}</td>
+        <td class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">{{Educacion.tituloEdu }}</td>
         <td *ngIf="isLogged" class="btn-edit">
           <a [routerLink]="['/editedu/' + Educacion.idEdu]">
             <button

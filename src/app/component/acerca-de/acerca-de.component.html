@@ -3,19 +3,11 @@
     <img src="{{info.fotoPerfil}}" alt="" class="img-fluid" id="foto-perfil"/>
   </div>
   <div id="contenedor">
-    <h1>Acerca de mi</h1>
-    <div id="boton_agregar" class="col-lg-2 col-md-2 col-sm-2">
-    <a [routerLink]="['/nuevapersona']">
-      <button
-      type="button"
-      class="btn btn-info"
-      *ngIf="isLogged"
-    ><i class="bi bi-person-plus-fill"></i>
-      AGREGAR
-    </button>
-    </a>
-    </div>
+    <h1 style="font-size: 12px;">{{info.nombre}} {{info.apellido}}.</h1>
+    <h2>{{info.titulo}}</h2>
+    <h2>Acerca de mi</h2>
   </div>
+
 
 
   <div id="texto">
@@ -34,3 +26,17 @@
     </button>
   </div>
 </div>
+
+<div id="boton_agregar" class="col-lg-2 col-md-2 col-sm-2">
+  <a [routerLink]="['/nuevapersona']">
+    <button
+    type="button"
+    class="btn btn-info"
+    *ngIf="isLogged"
+  ><i class="bi bi-person-plus-fill"></i>
+    AGREGAR PERFIL
+  </button>
+  </a>
+</div>
+
+

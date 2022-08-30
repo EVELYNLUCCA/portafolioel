@@ -50,6 +50,23 @@ h1, h3{
 }
 
 @media(max-width:575px){
-  .buttons{
+  .btn-delete, .btn-edit{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: none;
+  }
+
+  .btn-delete{
+    bottom: 0;
+    right: 50px;
+  }
+
+  #contenedor{
+    padding: 0;
+  }
+
+  #encabezado{
+    padding: 0;
   }
 }

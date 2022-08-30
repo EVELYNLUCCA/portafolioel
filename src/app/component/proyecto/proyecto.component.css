@@ -84,4 +84,14 @@
     width: 100px;
     box-shadow: 2px 2px 3px #00000080;
   }
+
+  .flex-column{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+
+  .flex-column td img {
+    padding: 0;
+  }
 }

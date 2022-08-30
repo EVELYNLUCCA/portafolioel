@@ -1,13 +1,15 @@
 <div class="banner" *ngIf="info">
-    <img src="{{info.banner}}" id="banner">
+    <img src="{{info.banner}}" id="banner" alt="banner image :D">
     <div id="tipeo">
       <span id="listado">
-        <h1 class="p1">EVELYN LUCCA</h1>
-        <h3 class="p2">FULLSTACK Jr.</h3>
+        <h3 class="p2">Codder</h3>
+        <h3 class="p1">Web Developer</h3>
+        <h3 class="p3">Javascript dev</h3>
         <!-- <h1 class="p1">{{info.nombre}} {{info.apellido}}</h1>
         <h3 class="p2">{{info.titulo}}</h3> -->
-    </span>
-      <ngx-typed-js class="efectoEscritura" [stringsElement]="'#listado'" [startDelay]="1000" [showCursor]="true" [typeSpeed]="120" [backSpeed]="120" [loop]="true" [smartBackspace]="true">
+      </span>
+
+      <ngx-typed-js class="efectoEscritura" [stringsElement]="'#listado'" [startDelay]="400" [showCursor]="true" [typeSpeed]="120" [backSpeed]="120" [loop]="true" [smartBackspace]="true">
         <span style="color:rgb(255, 0, 106); font-size:30px" class="typing"></span>
       </ngx-typed-js>
     </div>
