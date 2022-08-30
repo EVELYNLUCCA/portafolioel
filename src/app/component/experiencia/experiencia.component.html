@@ -1,32 +1,30 @@
-<div class="row" style="width: 100%;">
+<div class="row" id="encabezado">
   <h1>Experiencia Laboral</h1>
-  <div class="col-lg-2 col-md-2 col-sm-2">
+  <div id="boton_agregar" class="col-lg-2 col-md-2 col-sm-2">
     <a [routerLink]="['/nuevaexp']">
       <button
         type="button"
-        class="btn btn-dark"
+        class="btn btn-info"
         *ngIf="isLogged"
-      >
+      ><i class="bi bi-person-plus-fill"></i>
         AGREGAR
       </button>
     </a>
   </div>
 
-  <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+  <!-- <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
     <table class="table col-lg-11 col-md-11 col-sm-11 col-xs-11">
       <tbody class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
         <tr class="col-lg-11 col-md-11 col-sm-11 col-xs-11" *ngFor="let Experiencia of expe">
-          <td>
-            <h2 class="col-lg-11 col-md-11 col-sm-11 col-xs-11">{{Experiencia.empresa}}</h2>
+          <td class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+            <h2>{{Experiencia.empresa}}</h2>
           </td>
-          <table class="table col-lg-11 col-md-11 col-sm-11 col-xs-11">
             <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{Experiencia.anoInicio}}</td>
             <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{Experiencia.anoFin}}</td>
             <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">{{Experiencia.descripcion}}</td>
-          </table>
-
           <div class="buttons">
             <td *ngIf="isLogged">
+
               <a [routerLink]="['/editexp/'+ Experiencia.idExp]">
                 <button class="btn btn-light">
                   <i class="bi bi-pencil-fill"></i>
@@ -44,5 +42,41 @@
       </tbody>
     </table>
   </div>
+</div> -->
+
+<div id="contenedor" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+  <table id="tabla" class="table col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <thead>
+      <tr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <th class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">Empresa</th>
+        <th class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">Año Inicio</th>
+        <th class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">Año Fin</th>
+        <th class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">Descripcion</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let Experiencia of expe" class="experiencia_container">
+      <tr class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+        <td class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">{{Experiencia.empresa}}</td>
+        <td class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">{{Experiencia.anoInicio }}</td>
+        <td class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">{{Experiencia.anoFin }}</td>
+        <td class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">{{Experiencia.descripcion }}</td>
+        <td *ngIf="isLogged" class="btn-edit">
+          <a [routerLink]="['/editedu/' + Experiencia.idExp]">
+            <button
+              class="btn btn-light"
+            >
+              <i class="bi bi-pencil-fill"></i>
+            </button>
+          </a>
+        </td>
+        <td *ngIf="isLogged" class="btn-delete">
+          <button class="btn btn-danger" (click)="delete(Experiencia.idExp)">
+            <i class="bi bi-trash-fill"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
 

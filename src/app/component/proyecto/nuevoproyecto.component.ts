@@ -18,7 +18,7 @@ export class NuevoproyectoComponent implements OnInit {
 
   handleCreate(): void {
     this.proyectoService.createProyecto(this.form).subscribe(data => {
-      alert('creado correctamente!');
+      alert('agregado correctamente!');
       console.log(data);
       this.router.navigate(['']);
     }, err => {

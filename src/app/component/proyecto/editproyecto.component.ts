@@ -27,7 +27,7 @@ export class EditproyectoComponent implements OnInit {
     formData.append('fotoProyecto', this.form.fotoProyecto);
 
     this.proyectoService.updateProyecto(formData, this.id).subscribe(data => {
-      alert('cambiado correctamente ;)');
+      alert('editado correctamente ;)');
       this.route.navigate(['']);
     }, err => {
       alert('ocurrio un error');

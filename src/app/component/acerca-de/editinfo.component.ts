@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./editinfo.component.css']
 })
 export class EditinfoComponent implements OnInit {
-  infoEditada: persona = {
+  infoEditada: persona | undefined = {
     nombre: '',
     apellido: '',
     titulo: '',
@@ -35,7 +35,7 @@ export class EditinfoComponent implements OnInit {
     formData.append('titulo', this.infoEditada.titulo);
     formData.append('acercaDeMi', this.infoEditada.acercaDeMi);
     formData.append('fotoPerfil', this.infoEditada.fotoPerfil);
-    formData.append('fotoBanner', this.infoEditada.banner);
+    formData.append('banner', this.infoEditada.banner);
 
     this.personaService.putPersona(formData, this.id).subscribe(data => {
       alert('editado correctamente :D');
@@ -46,5 +46,4 @@ export class EditinfoComponent implements OnInit {
       this.router.navigate(['']);
     })
   }
-
 }

@@ -1,19 +1,18 @@
-<div class="row">
+<div class="row" id="encabezado">
   <h1>Hard & Soft Skills</h1>
-  <div class="col-lg-2 col-md-2 col-sm-2">
+  <div class="col-lg-2 col-md-2 col-sm-2" id="boton_agregar">
     <a [routerLink]="['/nuevaskill']">
       <button
         type="button"
-        class="btn btn-dark"
+        class="btn btn-info"
         *ngIf="isLogged"
-      >
+      ><i class="bi bi-person-plus-fill"></i>
         AGREGAR
       </button>
     </a>
   </div>
 
-  <div class="col-lg-1 col-md-1 col-sm-1"></div>
-  <div class="col-lg-11 col-md-11 col-sm-11">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <table class="table">
       <tbody>
         <tr *ngFor="let skill of skills">
@@ -44,7 +43,7 @@
                 <button
                   class="btn btn-light "
                 >
-                  <i class="bi bi-pencil-fill"></i>EDITAR
+                  <i class="bi bi-pencil-fill"></i>
                 </button>
               </a>
             </td>
@@ -52,7 +51,7 @@
             <!--ícono lápiz video 16, 1:35'-->
             <td *ngIf="isLogged" class="btn-delete">
               <button class="btn btn-danger" (click)="delete(skill.idSkill)">
-                <i class="bi bi-trash-fill"></i>BORRAR
+                <i class="bi bi-trash-fill"></i>
               </button>
             </td>
           </div>

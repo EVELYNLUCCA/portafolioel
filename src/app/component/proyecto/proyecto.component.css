@@ -1,12 +1,59 @@
-.row{
-    background-color:#a1b5cb ;
+#encabezado {
+    width: 100%;
     padding: 20px;
     margin: 0;
-}
-.contenedor{
+    display: flex;
+    justify-content: flex-end;
+    background-color:#211C66 ;
+  }
+
+/*.contenedor{
     width: auto;
+}*/
+
+#boton_agregar {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
-.parte1, .parte2{
+
+#datos{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#datos #contenido{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#datos #contenido h3, #datos #contenido p, #datos #contenido a{
+  width: 100%;
+}
+
+#datos #contenido h3 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+#datos #contenido a{
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+}
+
+#img img {
+  width: 100%;
+  padding: 20px;
+  object-fit: contain;
+}
+/*.parte1, .parte2{
     display: inline-block;
     text-align: justify;
 }
@@ -16,7 +63,8 @@
 
 .button{
   display: none;
-}
+}*/
+
 
 @media(max-width:575px){
   .proyecto_div{

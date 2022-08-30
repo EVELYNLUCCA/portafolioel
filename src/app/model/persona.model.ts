@@ -6,7 +6,6 @@ export class persona {
   acercaDeMi: string;
   fotoPerfil: string;
   banner: string;
-  // fotoBanner: string | Blob;
 
   constructor( nombre: string, apellido:string, titulo: string, acercaDeMi: string, fotoPerfil: string, banner: string){
     this.nombre = nombre,

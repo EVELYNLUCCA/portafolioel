@@ -7,10 +7,18 @@
 
 img{
     width: 100%;
-    /* object-fit: cover; */
     height: 100%;
 
 }
+
+#tipeo{
+  position: absolute;
+  display: flex;
+  z-index: 99;
+  bottom: -100px;
+  right: 30px;
+}
+
 
 @media(max-width:575px){
   .banner{

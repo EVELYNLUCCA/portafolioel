@@ -1,46 +1,36 @@
-<div class="row">
-    <div class="acerca_de_container" *ngIf="info">
-      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" id="image-container">
-          <img src="{{info.fotoPerfil}}" class="img-fluid" id="foto-perfil">
-      </div>
-
-      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" id="info_usuario">
-          <p id="nombre">{{info.nombre}} {{info.apellido}}</p>
-          <p>{{info.titulo}}</p>
-      </div>
-
-      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-          <span>
-              <h1>Acerca de mí</h1>
-              <p>{{info.acercaDeMi}}</p>
-          </span>
-      </div>
+<div class="row" id="encabezado" *ngIf="info">
+  <div class="container" id="foto" *ngIf="info">
+    <img src="{{info.fotoPerfil}}" alt="" class="img-fluid" id="foto-perfil"/>
+  </div>
+  <div id="contenedor">
+    <h1>Acerca de mi</h1>
+    <div id="boton_agregar" class="col-lg-2 col-md-2 col-sm-2">
+    <a [routerLink]="['/nuevapersona']">
+      <button
+      type="button"
+      class="btn btn-info"
+      *ngIf="isLogged"
+    ><i class="bi bi-person-plus-fill"></i>
+      AGREGAR
+    </button>
+    </a>
     </div>
-    <div class="buttons">
-      <div class="col-lg-2 col-md-2 col-sm-2">
-        <a [routerLink]="['/nuevapersona']">
-          <button
-            type="button"
-            class="btn btn-dark"
-            *ngIf="isLogged"
-          >
-            AGREGAR
-          </button>
-        </a>
-      </div>
-      <td *ngIf="isLogged && info">
-        <a [routerLink]="['/editinfo/'+ info.id]">
-          <button
-            class="btn btn-light"
-          >
-            <i class="bi bi-pencil-fill"></i>EDITAR
-          </button>
-        </a>
-      </td>
-      <td *ngIf="isLogged && info" >
-        <button class="btn btn-danger" (click)="deletePersona(info.id)">
-          <i class="bi bi-trash-fill"></i>BORRAR
-        </button>
-      </td>
-    </div>
+  </div>
+
+
+  <div id="texto">
+  <div id="descripcion" class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <p>{{info.acercaDeMi}}</p>
+  </div>
+  </div>
+  <div id="EB" *ngIf="isLogged && info">
+    <a id="E" [routerLink]="['/editinfo/'+ info.id]">
+      <button class="btn btn-light">
+        <i class="bi bi-pencil-fill"></i>
+      </button>
+    </a>
+    <button id="B" class="btn btn-danger" (click)="deletePersona(info.id)">
+      <i class="bi bi-trash-fill"></i>
+    </button>
+  </div>
 </div>

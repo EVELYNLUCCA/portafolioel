@@ -2,6 +2,7 @@ import { PersonaService } from './../../service/persona.service';
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/service/token.service';
 import { Router } from '@angular/router';
+import { persona } from 'src/app/model/persona.model';
 
 @Component({
   selector: 'app-acerca-de',
@@ -9,10 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit {
-  info: any = {};
+  public info: persona = {
+    nombre: '',
+    apellido: '',
+    titulo: '',
+    acercaDeMi: '',
+    fotoPerfil: '',
+    banner: ''
+  };
 
 
-  constructor(private personaservice: PersonaService, private tokenService:TokenService, private router:Router) { }
+  constructor(private personaservice: PersonaService, private tokenService:TokenService, private router: Router) { }
   isLogged = false;
 
   cargarInfo(): void{
@@ -28,6 +36,7 @@ export class AcercaDeComponent implements OnInit {
   ngOnInit(): void {
     this.cargarInfo();
 
+
     if(this.tokenService.getToken()){
       this.isLogged = true;
     }else{
@@ -39,8 +48,10 @@ export class AcercaDeComponent implements OnInit {
     if(id != undefined){
       this.personaservice.deletePersona(id).subscribe(
         (data: any) => {
-          alert('borrado correctamente');
           this.cargarInfo();
+          this.router.navigate(['']);
+          window.location.reload();
+          alert('borrado correctamente');
         }, (err: any) => {
           alert("No se pudo borrar la info");
           console.log(err);

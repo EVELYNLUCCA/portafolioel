@@ -1,18 +1,18 @@
-<div class="row">
+<div class="row" id="encabezado">
     <h1>Proyectos realizados</h1>
-    <div class="col-lg-2 col-md-2 col-sm-2">
+    <div id="boton_agregar" class="col-lg-2 col-md-2 col-sm-2">
       <a [routerLink]="['/nuevoproyecto']">
         <button
-          type="button"
-          class="btn btn-dark"
-          *ngIf="isLogged"
-        >
-          AGREGAR
-        </button>
+        type="button"
+        class="btn btn-info"
+        *ngIf="isLogged"
+      ><i class="bi bi-person-plus-fill"></i>
+        AGREGAR
+      </button>
       </a>
     </div>
 
-    <div class="contenedor">
+    <!-- <div class="contenedor">
         <div class="proyecto_div" *ngFor="let proyecto of proyectos">
           <div class="col-sm-12 col-md-7 col-lg-7 parte1">
               <h3>{{proyecto.nombreProyecto}}</h3>
@@ -29,7 +29,7 @@
                 </a>
               </td>
 
-              <!--ícono lápiz video 16, 1:35'-->
+
               <td *ngIf="isLogged">
                 <button class="btn btn-danger" (click)="deleteProyecto(proyecto.idProy)">
                   <i class="bi bi-trash-fill"></i>
@@ -43,4 +43,31 @@
           </a>
         </div>
     </div>
+</div> -->
+
+<div *ngFor="let proyecto of proyectos">
+  <table class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <tbody class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <td id="datos" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div id="contenido">
+          <h3>{{proyecto.nombreProyecto}}</h3>
+          <p>{{proyecto.descripcion}}</p>
+          <a href="{{proyecto.url}}">Visitalo</a>
+        </div>
+      </td>
+      <td id="img" class="col col-lg-5 col-md-5 col-sm-5 col-xs-5">
+        <img src="{{proyecto.fotoProyecto}}" class="col-lg-5 col-md-5 col-sm-5 col-xs-5" id="img-proyecto">
+      </td>
+      <td id="botones" *ngIf="isLogged">
+        <a [routerLink]="['/editproyecto/'+ proyecto.idProy]">
+          <button class="btn btn-light">
+            <i class="bi bi-pencil-fill"></i>
+          </button>
+        </a>
+        <button class="btn btn-danger" (click)="deleteProyecto(proyecto.idProy)">
+          <i class="bi bi-trash-fill"></i>
+        </button>
+      </td>
+    </tbody>
+  </table>
 </div>

@@ -32,7 +32,7 @@ import { EditproyectoComponent } from './component/proyecto/editproyecto.compone
 import { NuevoproyectoComponent } from './component/proyecto/nuevoproyecto.component';
 import { EditinfoComponent } from './component/acerca-de/editinfo.component';
 import { NuevapersonaComponent } from './component/acerca-de/nuevapersona/nuevapersona.component';
-
+import {NgxTypedJsModule} from 'ngx-typed-js';
 
 @NgModule({
   declarations: [
@@ -60,6 +60,7 @@ import { NuevapersonaComponent } from './component/acerca-de/nuevapersona/nuevap
     NuevoproyectoComponent,
     EditinfoComponent,
     NuevapersonaComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -67,7 +68,8 @@ import { NuevapersonaComponent } from './component/acerca-de/nuevapersona/nuevap
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxTypedJsModule,
   ],
   providers: [
     interceptorProvider

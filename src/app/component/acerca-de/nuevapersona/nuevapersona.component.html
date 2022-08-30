@@ -19,12 +19,12 @@
           <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="info.titulo" required>
         </div>
         <div class="form-group">
-          <label for="acerca de mi">Acerca de mí</label>
-          <input type="text" class="form-control" id="acerca de mi" name="acerca de mi" [(ngModel)]="info.acercaDeMi" required>
+          <label for="acercaDeMi">Acerca de mí</label>
+          <textarea type="text" class="form-control" id="acercaDeMi" name="acercaDeMi" [(ngModel)]="info.acercaDeMi" required></textarea>
         </div>
         <div class="form-group">
-          <label for="foto perfil">Foto de perfil</label>
-          <input type="text" class="form-control" id="foto perfil" name="foto perfil" [(ngModel)]="info.fotoPerfil" required>
+          <label for="fotoPerfil">Foto de perfil</label>
+          <input type="text" class="form-control" id="fotoPerfil" name="fotoPerfil" [(ngModel)]="info.fotoPerfil" required>
         </div>
 
         <button class="btn btn-primary" (click)="crearInfo()">

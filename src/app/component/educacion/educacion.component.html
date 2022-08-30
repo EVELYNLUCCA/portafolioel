@@ -1,26 +1,27 @@
-<div class="row">
-  <h1>Educacion</h1>
-  <div class="col-lg-2 col-md-2 col-sm-2">
+<div class="row" id="encabezado">
+  <h1>Educación</h1>
+  <div id="boton_agregar" class="col-lg-2 col-md-2 col-sm-2">
     <a [routerLink]="['/nuevaedu']">
       <button
         type="button"
-        class="btn btn-dark"
-        *ngIf="isLogged"
-      >
-      AGREGAR
+        class="btn btn-info"
+        *ngIf="isLogged">
+          <i class="bi bi-person-plus-fill">
+            AGREGAR
+          </i>
       </button>
     </a>
   </div>
 
-  <div class="col-lg-1 col-md-1 col-sm-1"></div>
+  <!-- <div class="col-lg-1 col-md-1 col-sm-1"></div>
   <div class="col-lg-11 col-md-11 col-sm-11">
     <table class="table col-lg-11 col-md-11 col-sm-11 col-xs-11">
-      <tbody class= "col-lg-11 col-md-11 col-sm-11 col-xs-1!">
+      <tbody class= "col-lg-11 col-md-11 col-sm-11 col-xs-11">
         <tr *ngFor="let Educacion of educacion" class="educacion_container">
-          <td class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <h2 class="col-lg-4 col-md-4 col-sm-4 col-xs-4">{{Educacion.institucionEdu}}</h2>
+          <td class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+            <h2 id="nombre_institucion">{{Educacion.institucionEdu}}</h2>
           </td>
-          <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">{{ Educacion.tituloEdu }}</td>
+          <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{ Educacion.tituloEdu }}</td>
           <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{ Educacion.anoInicioEdu }}</td>
           <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{ Educacion.anoFinEdu }}</td>
 
@@ -36,7 +37,7 @@
               </a>
             </td>
 
-            <!--ícono lápiz video 16, 1:35'-->
+
             <td *ngIf="isLogged" class="btn-delete">
               <button class="btn btn-danger" (click)="delete(Educacion.idEdu)">
                 <i class="bi bi-trash-fill"></i>
@@ -48,65 +49,48 @@
       </tbody>
     </table>
   </div>
+</div> -->
+
+<div id="contenedor" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+  <table id="tabla" class="table col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <thead>
+      <tr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <th class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">Institución Educativa</th>
+        <th class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">Año Inicio</th>
+        <th class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">Año Fin</th>
+        <th class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">Terminología</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let Educacion of educacion" class="educacion_container">
+      <tr class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+        <td class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">{{Educacion.institucionEdu}}</td>
+        <td class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">{{Educacion.anoInicioEdu }}</td>
+        <td class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">{{Educacion.anoFinEdu }}</td>
+        <td class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">{{Educacion.tituloEdu }}</td>
+        <td *ngIf="isLogged" class="btn-edit">
+          <a [routerLink]="['/editedu/' + Educacion.idEdu]">
+            <button
+              class="btn btn-light"
+            >
+              <i class="bi bi-pencil-fill"></i>
+              <p class="button_text">EDITAR</p>
+            </button>
+          </a>
+        </td>
+        <td *ngIf="isLogged" class="btn-delete">
+          <button class="btn btn-danger" (click)="delete(Educacion.idEdu)">
+            <i class="bi bi-trash-fill"></i>
+            <p class="button_text">BORRAR</p>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 
 
-<!-- <div class="row">
-  <h1>Educación</h1>
-  <div class="col-lg-1"></div>
-  <div class="col-lg-11">
-    <ul>
-      <li>
-        <h1>Bachiller en Ciencias Biológicas</h1>
 
-        <h3>5 años</h3>
-      </li>
-      <p>
-        Estudio secundario cursado en la Escuela de Enseñanza Media N° 204
-        "Domingo de Oro", de la ciudad de Rafaela, provincia de Santa Fe, desde
-        el año 1995 hasta el año 2000.
-      </p>
-    </ul>
-    <ul>
-      <li>
-        <h1>Argentina Programa</h1>
 
-        <h3>9 meses</h3>
-      </li>
-      <p>
-        Estudio cursado de manera online, con modalidad asincrónica, brindado
-        por el Ministerio de Desarrollo Productivo de la Nación Argentina y el
-        INTI, destinado a capacitar mano de obra necesaria en el rubro
-        tecnológico. Iniciado en el mes de noviembre de 2021 y finalizado el 31
-        de agosto de 2022.
-      </p>
-    </ul>
-    <ul>
-      <li>
-        <h1>Fullstack Python</h1>
 
-        <h3>4 meses</h3>
-      </li>
-      <p>
-        Curso realizado a través de la plataforma virtual de la Agencia de
-        Aprendizaje a lo largo de la vida, de la ciudad de Buenos Aires, el
-        marco del programa Codo a Codo, comenzado en marzo de 2022 y finalizado
-        en julio de ese mismo año.
-      </p>
-    </ul>
-    <ul>
-      <li>
-        <h1>Fullstack Javascript</h1>
 
-        <h3>4 meses</h3>
-      </li>
-      <p>
-        Curso realizado a través de la plataforma virtual de la Agencia de
-        Aprendizaje a lo largo de la vida, de la ciudad de Buenos Aires, el
-        marco del programa Codo a Codo, comenzado en agosto de 2022 y a
-        finalizar en diciembre de 2022.
-      </p>
-    </ul>
-  </div>
-</div> -->

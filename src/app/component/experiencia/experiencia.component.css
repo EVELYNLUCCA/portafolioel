@@ -1,13 +1,40 @@
-.row{
-    padding: 20px;
-    margin:0;
+#encabezado{
+  width: 100%;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
 }
+
 div{
-    background-color: #a1b1cb;
+    background-color: #211C66;
 }
+
 h1, h3{
-    display: inline;
+    display: inherit;
+    align-items: center;
+    justify-content: center;
 }
+
+#boton_agregar{
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#contenedor {
+  padding: 20px;
+  }
+
+  #tabla {
+    color: white;
+    padding: 20px;
+  }
+
+  th{
+    text-transform: uppercase;
+  }
 
 .buttons{
   position: absolute;

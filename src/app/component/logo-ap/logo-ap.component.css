@@ -31,20 +31,32 @@
   transform: scale(1.2);
 }
 
-.row .container .redes ul li img {
+.row .container .redes ul li svg {
   width: 100%;
   height: 100%;
+  fill: white;
 }
 
 #logoAP{
     width: 220px;
 }
+
+#logoAP:hover{
+  transform: scale(1.2);
+  transition: all .3s;
+}
+
 img{
     width: 150px;
     /* filter:brightness(0) */
 }
+
 .btn{
     border-width:medium;
+}
+
+.btn:hover {
+  border-color: #FF0080;
 }
 
 /* para la vista de celular */
