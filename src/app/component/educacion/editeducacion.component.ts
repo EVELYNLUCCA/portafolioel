@@ -10,12 +10,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditeducacionComponent implements OnInit {
   formToSend: any = {};
-  id: number = null;
+  id: any = null;
 
   constructor(private educacionS: EducacionService, private activatedRouter: ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
     this.id = this.activatedRouter.snapshot.params['id'];
+    this.getEducacion();
   }
 
   handleChange(e:Event): void {
@@ -32,10 +33,10 @@ export class EditeducacionComponent implements OnInit {
     onCreate(): void{
       const formData = new FormData();
 
-      formData.append('institucion', this.formToSend.institucion);
-      formData.append('titulo', this.formToSend.titulo);
-      formData.append('anoInicio', this.formToSend.anoInicio);
-      formData.append('anoFin', this.formToSend.anoFin);
+      formData.append('institucion', this.formToSend.institucionEdu);
+      formData.append('titulo', this.formToSend.tituloEdu);
+      formData.append('anoInicio', this.formToSend.anoInicioEdu);
+      formData.append('anoFin', this.formToSend.anoFinEdu);
 
       this.educacionS.update(this.id, formData).subscribe((data) => {
         alert("Se ha editado correctamente! :D");
@@ -45,4 +46,12 @@ export class EditeducacionComponent implements OnInit {
         console.log(err);
       })
     }
+
+  getEducacion(): void{
+    this.educacionS.details().subscribe((data: any) => {
+      this.formToSend = data.filter((el: any) => el.idEdu === parseInt(this.id))[0];
+    }, (err) => {
+      console.log(err);
+    })
+  }
 }

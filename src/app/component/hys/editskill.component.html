@@ -4,15 +4,15 @@
       <form novalidate #f="ngForm">
         <div class="form-group">
           <label for="nombreSkill">Nombre Skill</label>
-          <input type="text" class="form-control" id="nombreSkill" name="nombreSkill" (keyup)="handleChange($event)" required>
+          <input ngModel="{{formToSend.nombreSkill}}" type="text" class="form-control" id="nombreSkill" name="nombreSkill" (keyup)="handleChange($event)" required>
         </div>
         <div class="form-group">
           <label for="imgSkill">Link de la imagen ;)</label>
-          <input type="text" class="form-control" id="imgSkill" name="imgSkill"  (keyup)="handleChange($event)" required>
+          <input ngModel="{{formToSend.imgSkill}}" type="text" class="form-control" id="imgSkill" name="imgSkill"  (keyup)="handleChange($event)" required>
         </div>
         <div class="form-group">
           <label for="porcentajeSkill">Porcentaje (%)</label>
-          <input type="number" class="form-control" id="porcentajeSkill" name="porcentajeSkill" (keyup)="handleChange($event)" required>
+          <input ngModel="{{formToSend.porcentajeSkill}}" type="number" class="form-control" id="porcentajeSkill" name="porcentajeSkill" (keyup)="handleChange($event)" required>
         </div>
 
         <button (click)="onCreate()" class="btn btn-primary">

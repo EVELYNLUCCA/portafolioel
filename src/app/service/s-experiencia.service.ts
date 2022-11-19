@@ -16,9 +16,10 @@ export class SExperienciaService {
   public lista(): Observable<Experiencia[]>{
     return this.Http.get<Experiencia[]>(this.expURL + 'ver/experiencia');
   }
-  public detail(id:number): Observable<Experiencia>{
-    return this.Http.get<Experiencia>(this.expURL + `detail/${id}`)
-  }
+
+  // public detail(id:number): Observable<Experiencia>{
+  //   return this.Http.get<Experiencia>(this.expURL + `detail/${id}`)
+  // }
 
   public save(experiencia:Experiencia): Observable<any>{
     return this.Http.post<any>(this.expURL + 'nuevo/experiencia', experiencia)

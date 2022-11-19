@@ -10,7 +10,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./edit-experiencia.component.css']
 })
 export class EditExperienciaComponent implements OnInit {
-  experiencia: Experiencia = null;
+  experiencia: any = null;
+  id: any = null;
 
   empresa: string = '';
   anoInicio: any = null;
@@ -23,7 +24,19 @@ export class EditExperienciaComponent implements OnInit {
   { };
 
   ngOnInit(): void {
-    const id = this.activatedRouter.snapshot.params['id']; //acá capturo el id de la experiencia que quiero modificar
+    this.id = this.activatedRouter.snapshot.params['id']; //acá capturo el id de la experiencia que quiero modificar
+    this.getExperiencia();
+  }
+
+  handleChange(e:Event): void {
+    const inputValue = (<HTMLInputElement>e.target).value;
+    const inputName = (<HTMLInputElement>e.target).name;
+
+    this.experiencia = {
+      ...this.experiencia,
+      [inputName]: inputValue
+    }
+    console.log(this.experiencia);
   }
 
   onUpdate(e: Event):void{
@@ -32,10 +45,10 @@ export class EditExperienciaComponent implements OnInit {
 
     const formData = new FormData();
 
-    formData.append('empresa', this.empresa);
-    formData.append('anoFin', this.anoFin);
-    formData.append('anoInicio', this.anoInicio);
-    formData.append('descripcion', this.descripcion);
+    formData.append('empresa', this.experiencia.empresa);
+    formData.append('anoFin', this.experiencia.anoFin);
+    formData.append('anoInicio', this.experiencia.anoInicio);
+    formData.append('descripcion', this.experiencia.descripcion);
 
     this.sExperiencia.update(id, formData).subscribe(data=>{
       console.log(data);
@@ -46,5 +59,15 @@ export class EditExperienciaComponent implements OnInit {
       alert("Error al modificar experiencia");
     }
     )
+  }
+
+  getExperiencia(): void {
+    this.sExperiencia.lista().subscribe(data => {
+      const expFiltered = data.filter((el) => el.idExp === parseInt(this.id))[0];
+      console.log(expFiltered);
+      this.experiencia = expFiltered
+    }, (err: any) => {
+      console.log(err)
+    })
   }
 }

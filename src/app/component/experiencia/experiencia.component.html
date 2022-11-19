@@ -1,5 +1,6 @@
 <div class="row" id="encabezado">
   <h1>Experiencia Laboral</h1>
+
   <div id="boton_agregar" class="col-lg-2 col-md-2 col-sm-2">
     <a [routerLink]="['/nuevaexp']">
       <button
@@ -61,7 +62,7 @@
         <td class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">{{Experiencia.anoFin }}</td>
         <td class="col col-lg-3 col-md-3 col-sm-3 col-xs-3">{{Experiencia.descripcion }}</td>
         <td *ngIf="isLogged" class="btn-edit">
-          <a [routerLink]="['/editedu/' + Experiencia.idExp]">
+          <a [routerLink]="['/editexp/' + Experiencia.idExp]">
             <button
               class="btn btn-light"
             >

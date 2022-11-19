@@ -8,13 +8,19 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./editskill.component.css']
 })
 export class EditskillComponent implements OnInit {
-  formToSend: any = {}
-  id: number = null;
+  formToSend: any = {
+    nombreSkill: '',
+    imgSkill: '',
+    porcentajeSkill: ''
+  }
+  id: any = null;
 
   constructor(private skillService:SkillsService, private router:Router, private activatedRouter:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.activatedRouter.snapshot.params['id'];
+    this.getSkill();
+    console.log(this.formToSend);
   }
 
   handleChange(e:Event): void {
@@ -41,6 +47,16 @@ export class EditskillComponent implements OnInit {
       this.router.navigate(['']);
     }, (err) => {
       alert("Ha ocurrido un error: " + err);
+    })
+  }
+
+  getSkill(): void{
+    this.skillService.getSkills().subscribe((data) => {
+      const skillSearched = data.filter((el: any) => el.idSkill === parseInt(this.id))[0];
+      console.log(skillSearched);
+      this.formToSend = skillSearched;
+    }, (err) => {
+      console.log('error al traer las cositas')
     })
   }
 

@@ -17,15 +17,15 @@ URL = `${environment.apiURL}/`;
     return this.http.get<Educacion[]>(`${this.URL}educacion/ver/educacion`);
   }
 
-  public details(id:number): Observable<Educacion>{
-    return this.http.get<Educacion>(`${this.URL}detail/${id}`);
+  public details(): Observable<Educacion>{
+    return this.http.get<Educacion>(`${this.URL}educacion/ver/educacion`);
   }
 
   public save(educacion:Educacion): Observable<any>{
     return this.http.post<any>(this.URL + 'educacion/nuevo/educacion', educacion)
   }
 
-  public update(id:number, educacion:FormData): Observable<Educacion>{
+  public update(id:number, educacion:any): Observable<Educacion>{
     return this.http.put<Educacion>(`${this.URL}educacion/editar/${id}`, educacion);
   }
 
